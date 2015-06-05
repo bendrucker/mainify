@@ -9,6 +9,7 @@ var ensureRelative = require('dot-slash').enforce
 var path = require('path')
 
 module.exports = function (file) {
+  if (/\.json$/.test(file)) return through()
   return through(function (code, enc, callback) {
     callback(null, replace(file, code))
   })
