@@ -36,6 +36,13 @@ You can even use `__dirname`:
 require('require-relative-main')('./users', __dirname)
 ```
 
+You **cannot** assign require-relative-main to a variable and use it later:
+
+```js
+var rrm = require('require-relative-main')
+rrm('./module') // => this cannot be replaced
+```
+
 ## API
 
 #### `mainify()` -> `transformStream`
