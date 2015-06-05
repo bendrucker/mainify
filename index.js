@@ -35,7 +35,7 @@ function cwd (file, node) {
       return path.dirname(file)
     }
     if (node.type === 'Literal') {
-      return path.resolve(file, arg.value)
+      return path.resolve(file, node.value)
     }
   }
   return process.cwd()
