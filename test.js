@@ -6,7 +6,8 @@ var vm = require('vm')
 var mainify = require('./')
 
 test(function (t) {
-  ;['simple', 'dirname'].forEach(bundle)
+  bundle('simple')
+  bundle('dirname')
   function bundle (scenario) {
     t.test(scenario, function (t) {
       t.plan(1)

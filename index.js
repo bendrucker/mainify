@@ -20,17 +20,14 @@ module.exports = function (file) {
 }
 
 function replaceImmediateCalls (file, code) {
-  return detective
-    .find(code, {nodes: true}).nodes
-    .filter(isRrmNode)
+  return nodes(code)
     .filter(immediateCall)
     .map(function (node) {
-      var parent = node.parent
       return {
-        start: parent.start,
-        end: parent.end,
-        raw: parent.arguments[0].value,
-        cwd: cwd(file, parent) || process.cwd()
+        start: node.start,
+        end: node.end,
+        raw: node.arguments[0].value,
+        cwd: cwd(file, node) || process.cwd()
       }
     })
     .reduce(function (code, require) {
@@ -46,6 +43,19 @@ function relative (file, require) {
   return ensureRelative(dep)
 }
 
+function nodes (code) {
+  return detective
+    .find(code, {nodes: true})
+    .nodes
+    .filter(isRrmNode)
+    .map(parent)
+    .filter(Boolean)
+}
+
+function parent (node) {
+  return node.parent
+}
+
 function isRrmNode (node) {
   var arg = node.arguments[0]
   return arg &&
@@ -54,10 +64,9 @@ function isRrmNode (node) {
 }
 
 function immediateCall (node) {
-  var parent = node.parent
-  return parent &&
-    parent.type === 'CallExpression' &&
-    parent.arguments[0].type === 'Literal'
+  return node &&
+    node.type === 'CallExpression' &&
+    node.arguments[0].type === 'Literal'
 }
 
 function cwd (file, node) {
