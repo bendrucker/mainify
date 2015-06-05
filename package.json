@@ -1,7 +1,7 @@
 {
   "name": "mainify",
   "main": "index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "browserify transform for require-relative-main",
   "license": "MIT",
   "repository": "bendrucker/mainify",
