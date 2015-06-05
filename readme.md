@@ -45,7 +45,15 @@ rrm('./module') // => this cannot be replaced
 
 ## API
 
-#### `mainify()` -> `transformStream`
+#### `mainify(file)` -> `transformStream`
+
+
+##### file
+
+*Required*  
+Type: `string`
+
+The file path to be processed. Browserify will pass this along automatically for each file when you use the transform.
 
 ## License
 
