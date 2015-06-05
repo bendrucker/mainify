@@ -28,6 +28,7 @@
     "dot-slash": "~1.1.0",
     "find-main": "~2.0.2",
     "has-require": "~1.1.0",
+    "replace-immediate-require-call": "~1.0.1",
     "require-deps": "~1.0.1",
     "resolve": "~1.1.6",
     "through2": "~0.6.5"
