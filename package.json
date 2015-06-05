@@ -33,6 +33,7 @@
     "through2": "~0.6.5"
   },
   "devDependencies": {
+    "browserify": "~10.2.3",
     "standard": "^4.0.0",
     "tape": "^4.0.0"
   },
