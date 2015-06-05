@@ -20,6 +20,7 @@ module.exports = function (file) {
 }
 
 function replaceImmediateCalls (file, code) {
+  var offset = 0
   return nodes(code)
     .filter(immediateCall)
     .map(function (node) {
@@ -32,7 +33,11 @@ function replaceImmediateCalls (file, code) {
     })
     .reduce(function (code, require) {
       var id = relative(file, require)
-      return code.slice(0, require.start) + requireDeps(id) + code.slice(require.end)
+      var replacement = requireDeps(id)
+      var from = require.start + offset
+      var to = require.end + offset
+      offset += (replacement.length - (to - from))
+      return code.slice(0, from) + replacement + code.slice(to)
     }, code)
 }
 

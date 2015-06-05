@@ -8,9 +8,15 @@ var mainify = require('./')
 test(function (t) {
   bundle('simple')
   bundle('dirname')
-  function bundle (scenario) {
+  bundle('multiple', 1, function (t, require) {
+    t.deepEqual(require('multiple'), {
+      foo: 'foo',
+      bar: 'bar'
+    })
+  })
+  function bundle (scenario, planned, callback) {
     t.test(scenario, function (t) {
-      t.plan(1)
+      if (!planned) t.plan(1)
       browserify()
         .require(__dirname + '/fixtures/' + scenario, {
           expose: scenario
@@ -21,6 +27,10 @@ test(function (t) {
           var context = vm.createContext()
           vm.runInContext(code, context)
           var require = context.require
+          if (planned) {
+            t.plan(planned)
+            return callback(t, require)
+          }
           t.equal(require(scenario), 'foo')
         })
     })
