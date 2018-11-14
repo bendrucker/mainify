@@ -25,7 +25,7 @@ function replace (file, code) {
 
 function requireStatement (from, id, cwd) {
   var mainDir = path.dirname(findMain(cwd))
-  var dep = resolveSync(id, {basedir: mainDir})
+  var dep = resolveSync(id, { basedir: mainDir })
   dep = path.relative(path.dirname(from), dep)
   return requireDeps(ensureRelative(dep))
 }
