@@ -1,4 +1,4 @@
-# mainify [![Build Status](https://travis-ci.org/bendrucker/mainify.svg?branch=master)](https://travis-ci.org/bendrucker/mainify)
+# mainify [![Build Status](https://travis-ci.org/bendrucker/mainify.svg?branch=master)](https://travis-ci.org/bendrucker/mainify) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/mainify.svg)](https://greenkeeper.io/)
 
 > browserify transform for [require-relative-main](https://github.com/bendrucker/require-relative-main)
 
