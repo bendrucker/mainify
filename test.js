@@ -3,6 +3,7 @@
 var test = require('tape')
 var browserify = require('browserify')
 var vm = require('vm')
+var path = require('path')
 var mainify = require('./')
 
 test(function (t) {
@@ -18,7 +19,7 @@ test(function (t) {
     t.test(scenario, function (t) {
       if (!planned) t.plan(1)
       browserify()
-        .require(__dirname + '/fixtures/' + scenario, {
+        .require(path.resolve(__dirname, 'fixtures', scenario), {
           expose: scenario
         })
         .transform(mainify)
