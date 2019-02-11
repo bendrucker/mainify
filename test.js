@@ -15,6 +15,9 @@ test(function (t) {
       bar: 'bar'
     })
   })
+
+  t.end()
+
   function bundle (scenario, planned, callback) {
     t.test(scenario, function (t) {
       if (!planned) t.plan(1)
