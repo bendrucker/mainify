@@ -24,14 +24,14 @@
     "main"
   ],
   "dependencies": {
-    "detective": "~5.1.0",
-    "dot-slash": "~1.1.0",
-    "find-main": "~2.0.2",
-    "has-require": "~1.2.2",
-    "replace-immediate-require-call": "~1.0.1",
-    "require-deps": "~1.0.1",
-    "resolve": "~1.11.0",
-    "through2": "~3.0.0"
+    "detective": "^5.1.0",
+    "dot-slash": "^1.1.0",
+    "find-main": "^2.0.2",
+    "has-require": "^1.2.2",
+    "replace-immediate-require-call": "^1.0.1",
+    "require-deps": "^1.0.1",
+    "resolve": "^1.11.0",
+    "through2": "^3.0.0"
   },
   "devDependencies": {
     "browserify": "^16.2.3",
